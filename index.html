@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basecamp Secure - Digital Card</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            /* Palette: Basecamp Theme */
+            --bg-color: #0f172a; 
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --accent: #f97316; 
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: radial-gradient(circle at 10% 20%, rgba(21, 128, 61, 0.15) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(249, 115, 22, 0.08) 0%, transparent 40%);
+        }
+
+        .card-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        /* Glassmorphism Card Effect */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Shine Effect */
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -50%;
+            width: 100%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+            transform: skewX(-25deg);
+            animation: shine 6s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .logo-container {
+            width: 150px;
+            height: 150px;
+            background: transparent; /* ให้พื้นหลังรูปกลืนไปเลย หรือใส่ #fff ถ้าอยากให้รูปเด่น */
+            border-radius: 16px;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            /* border: 2px solid var(--accent); ลบขอบออกเพื่อให้โลโก้ดูคลีนๆ */
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 16px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin: 10px 0 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: none; 
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--glass-border), transparent);
+            margin: 20px 0;
+        }
+
+        .services {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        .service-item i {
+            color: var(--accent);
+            width: 25px;
+            margin-right: 10px;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid var(--glass-border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 0.8rem;
+            color: #475569;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <div class="glass-card">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Basecamp Secure Logo">
+            </div>
+
+            <h1>BASECAMP SECURE</h1>
+
+            <div class="divider"></div>
+
+            <div class="services">
+                <div class="service-item">
+                    <i class="fas fa-code"></i> Full-Scale Web Solutions
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-shield-alt"></i> Secure Web Apps
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-database"></i> Data Structure & Systems
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="mailto:basecamp.dev@outlook.com" class="btn btn-primary">
+                    <i class="fas fa-envelope" style="margin-right: 8px;"></i> Email Me
+                </a>
+                <a href="#" class="btn btn-secondary"> <i class="fab fa-facebook" style="margin-right: 8px;"></i> Facebook Page
+                </a>
+            </div>
+
+            <div class="footer">
+                Basecamp Secure © 2026
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
